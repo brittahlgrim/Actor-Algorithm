@@ -1,0 +1,137 @@
+package pack1.ActorAlgorithm;
+
+public class APIDataObject {
+	public APIResultsSet Results;
+}
+	data: {
+	results: {
+	names: [
+	{
+	title: "Nicolas Cage",
+	id: "nm0000115",
+	url: "http://www.imdb.com/name/nm0000115/?ref_=fn_al_nm_1",
+	thumbnail: "https://images-na.ssl-images-amazon.com/images/M/MV5BMTUzMDM4Nzk2MV5BMl5BanBnXkFtZTcwNTcwNjExOQ@@._V1_UX32_CR0,0,32,44_AL_.jpg"
+	},
+	{
+	title: "Nicolas Cantu",
+	id: "nm7751235",
+	url: "http://www.imdb.com/name/nm7751235/?ref_=fn_al_nm_2",
+	thumbnail: "https://images-na.ssl-images-amazon.com/images/M/MV5BMjI2MTMwMjg3Ml5BMl5BanBnXkFtZTgwMjgzMzM4NzE@._V1_UX32_CR0,0,32,44_AL_.jpg"
+	},
+	{
+	title: "Nicolas Cazalé",
+	id: "nm1002627",
+	url: "http://www.imdb.com/name/nm1002627/?ref_=fn_al_nm_3",
+	thumbnail: "http://ia.media-imdb.com/images/G/01/imdb/images/nopicture/32x44/name-2138558783._CB522736171_.png"
+	},
+	{
+	title: "Nicolas Coster",
+	id: "nm0182661",
+	url: "http://www.imdb.com/name/nm0182661/?ref_=fn_al_nm_4",
+	thumbnail: "https://images-na.ssl-images-amazon.com/images/M/MV5BNDU5OTc4MzM0OV5BMl5BanBnXkFyZXN1bWU@._V1_UX32_CR0,0,32,44_AL_.jpg"
+	},
+	{
+	title: "Nicolas Cowan",
+	id: "nm0184610",
+	url: "http://www.imdb.com/name/nm0184610/?ref_=fn_al_nm_5",
+	thumbnail: "http://ia.media-imdb.com/images/G/01/imdb/images/nopicture/32x44/name-2138558783._CB522736171_.png"
+	},
+	{
+	title: "Nicolas Cade",
+	id: "nm1211208",
+	url: "http://www.imdb.com/name/nm1211208/?ref_=fn_al_nm_6",
+	thumbnail: "http://ia.media-imdb.com/images/G/01/imdb/images/nopicture/32x44/name-2138558783._CB522736171_.png"
+	},
+	{
+	title: "Nicola Scott",
+	id: "nm0779622",
+	url: "http://www.imdb.com/name/nm0779622/?ref_=fn_al_nm_7",
+	thumbnail: "https://images-na.ssl-images-amazon.com/images/M/MV5BZjc3Y2FjNTktZjNhNy00NzYxLTlkMTAtZWUzMTgzZmNkNmRmL2ltYWdlXkEyXkFqcGdeQXVyNzIzMTY1NDc@._V1_UY44_CR1,0,32,44_AL_.jpg"
+	},
+	{
+	title: "Nicolas Cagniard",
+	id: "nm2457419",
+	url: "http://www.imdb.com/name/nm2457419/?ref_=fn_al_nm_8",
+	thumbnail: "http://ia.media-imdb.com/images/G/01/imdb/images/nopicture/32x44/name-2138558783._CB522736171_.png"
+	},
+	{
+	title: "Nicolas Carpentier",
+	id: "nm2210055",
+	url: "http://www.imdb.com/name/nm2210055/?ref_=fn_al_nm_9",
+	thumbnail: "http://ia.media-imdb.com/images/G/01/imdb/images/nopicture/32x44/name-2138558783._CB522736171_.png"
+	},
+	{
+	title: "Nicolas Cuche",
+	id: "nm0190988",
+	url: "http://www.imdb.com/name/nm0190988/?ref_=fn_al_nm_10",
+	thumbnail: "http://ia.media-imdb.com/images/G/01/imdb/images/nopicture/32x44/name-2138558783._CB522736171_.png"
+	}
+	],
+	titles: [
+	{
+	title: "Nicolas Cage",
+	id: "tt1277207",
+	url: "http://www.imdb.com/title/tt1277207/?ref_=fn_al_tt_1",
+	thumbnail: "http://ia.media-imdb.com/images/G/01/imdb/images/nopicture/32x44/film-3119741174._CB522736599_.png"
+	},
+	{
+	title: "Nicolas Cage",
+	id: "tt3437818",
+	url: "http://www.imdb.com/title/tt3437818/?ref_=fn_al_tt_2",
+	thumbnail: "https://images-na.ssl-images-amazon.com/images/M/MV5BMjIxMTAxNTIyM15BMl5BanBnXkFtZTgwNDc2ODc4MDE@._V1_UX32_CR0,0,32,44_AL_.jpg"
+	},
+	{
+	title: "Nicolas Cage",
+	id: "tt0963140",
+	url: "http://www.imdb.com/title/tt0963140/?ref_=fn_al_tt_3",
+	thumbnail: "http://ia.media-imdb.com/images/G/01/imdb/images/nopicture/32x44/film-3119741174._CB522736599_.png"
+	},
+	{
+	title: "Nicolas Cage",
+	id: "tt5012092",
+	url: "http://www.imdb.com/title/tt5012092/?ref_=fn_al_tt_4",
+	thumbnail: "http://ia.media-imdb.com/images/G/01/imdb/images/nopicture/32x44/film-3119741174._CB522736599_.png"
+	},
+	{
+	title: "Nicolas Cage",
+	id: "tt2134512",
+	url: "http://www.imdb.com/title/tt2134512/?ref_=fn_al_tt_5",
+	thumbnail: "https://images-na.ssl-images-amazon.com/images/M/MV5BMjEzMzg5MzgwMF5BMl5BanBnXkFtZTgwOTQ2Njk3MDE@._V1_UX32_CR0,0,32,44_AL_.jpg"
+	}
+	],
+	keywords: [
+	{
+	title: "reference-to-nicolas-cage",
+	id: "reference-to-nicolas-cage",
+	url: "http://www.imdb.com/keyword/reference-to-nicolas-cage/?ref_=fn_al_kw_1",
+	thumbnail: ""
+	},
+	{
+	title: "nicolas-cage-impression",
+	id: "nicolas-cage-impression",
+	url: "http://www.imdb.com/keyword/nicolas-cage-impression/?ref_=fn_al_kw_2",
+	thumbnail: ""
+	},
+	{
+	title: "reference-to-nicholas-cage",
+	id: "reference-to-nicholas-cage",
+	url: "http://www.imdb.com/keyword/reference-to-nicholas-cage/?ref_=fn_al_kw_3",
+	thumbnail: ""
+	}
+	],
+	companies: [
+	{
+	title: "Nicolas Caicoya",
+	id: "co0181080",
+	url: "http://www.imdb.com/company/co0181080/?ref_=fn_al_co_1",
+	thumbnail: ""
+	},
+	{
+	title: "San Nicolas Catering",
+	id: "co0503884",
+	url: "http://www.imdb.com/company/co0503884/?ref_=fn_al_co_2",
+	thumbnail: ""
+	}
+	]
+	}
+}

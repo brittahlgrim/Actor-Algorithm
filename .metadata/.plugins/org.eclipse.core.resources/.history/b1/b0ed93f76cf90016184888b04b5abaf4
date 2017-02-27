@@ -1,0 +1,33 @@
+package pack1.ActorAlgorithm;
+
+import java.net.HttpURLConnection;
+import java.net.URL;
+
+import javax.xml.bind.JAXBContext;
+
+public class ActorAlgorithm {
+
+	public static void main (String[] args) {
+	    System.out.println("hello world");
+	}
+	
+	private static void getActorByName(String name)
+	{
+		String uri ="http://imdb.wemakesites.net/api/search?q=nicolascage&api_key=81a3e6ca-56fc-40c4-aca0-fb228b7b76a9";
+
+			URL url = new URL(uri);
+			HttpURLConnection connection =
+			    (HttpURLConnection) url.openConnection();
+			connection.setRequestMethod("GET");
+			connection.setRequestProperty("Accept", "application/xml");
+
+			JAXBContext jc = JAXBContext.newInstance(Customer.class);
+			InputStream xml = connection.getInputStream();
+			Customer customer =
+			    (Customer) jc.createUnmarshaller().unmarshal(xml);
+
+			connection.disconnect();
+	}
+	
+	
+}

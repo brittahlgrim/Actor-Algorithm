@@ -1,0 +1,9 @@
+package pack1.ActorAlgorithm.SearchContracts;
+
+public class APIResultsObject {
+	public Iterable<SearchResult> Names;
+	public Iterable<SearchResult> Titles;
+	public Iterable<SearchResult> Keywords;
+	public Iterable<SearchResult> Companies;
+
+}

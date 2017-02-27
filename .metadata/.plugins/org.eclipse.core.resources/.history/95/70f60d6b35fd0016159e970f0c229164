@@ -1,0 +1,10 @@
+package pack1.ActorAlgorithm.SearchContracts;
+
+public class FullSearchResult {
+	public String Status;
+	public int Code;
+	public String Message;
+	public String Term;
+	public String SearchUrl;
+	public APIDataObject Data;
+}

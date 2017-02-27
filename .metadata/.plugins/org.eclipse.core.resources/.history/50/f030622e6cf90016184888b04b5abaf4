@@ -1,0 +1,17 @@
+package pack1.ActorAlgorithm;
+
+public class FullSearchResult {
+	public String Status;
+	public int Code;
+	public String Message;
+	public String Term;
+	public String SearchUrl;
+	public APIDataObject Data;
+	
+	{
+		status: "success",
+		code: 200,
+		message: "ok",
+		term: "nicolascage",
+		search_url: "http://www.imdb.com/find?q=nicolascage&s=all58ad9c74ea443",
+	}
