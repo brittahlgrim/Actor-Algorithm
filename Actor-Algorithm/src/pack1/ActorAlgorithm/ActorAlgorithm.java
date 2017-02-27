@@ -5,6 +5,7 @@ import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.*;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
@@ -13,6 +14,13 @@ import pack1.ActorAlgorithm.SearchContracts.Search.FullSearchResult;
 import pack1.ActorAlgorithm.SearchContracts.Search.SearchResultItem;
 
 public class ActorAlgorithm {
+	
+	private final static int ActorInitialCapacity = 10000;
+	private final static int MovieInitialCapacity = 10000;
+	public static Queue<Actor> actorsToSearch = new LinkedList<Actor>();
+	public static Queue<Movie> moviesToSearch = new LinkedList<Movie>();
+	public static HashMap<String, Actor> actorsAlreadySearched = new HashMap<String, Actor>(ActorInitialCapacity);
+	public static HashMap<String, Movie> moviesAlreadySearched = new HashMap<String, Movie>(MovieInitialCapacity);
 
 	public static void main (String[] args) throws IOException, JAXBException {
 	    System.out.println("hello world");
