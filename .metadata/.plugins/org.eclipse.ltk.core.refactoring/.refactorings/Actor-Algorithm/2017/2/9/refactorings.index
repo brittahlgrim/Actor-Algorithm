@@ -11,3 +11,19 @@
 1488232133048	Move compilation unit
 1488232154925	Copy compilation unit
 1488232251055	Rename compilation unit 'ActorResponseDataObject.java'
+1488232598074	Rename type 'medialinksDataObject'
+1488232715969	Delete element
+1488232736635	Delete element
+1488233991439	Rename field 'Status'
+1488234010205	Rename field 'Code'
+1488234022609	Rename field 'Message'
+1488234035511	Rename field 'Term'
+1488234049412	Rename field 'SearchUrl'
+1488234063325	Rename field 'Data'
+1488234129412	Rename field 'Title'
+1488234137189	Rename field 'ID'
+1488234147664	Rename field 'ThumbnailSource'
+1488234203832	Rename field 'Names'
+1488234212172	Rename field 'Titles'
+1488234218040	Rename field 'Keywords'
+1488234223491	Rename field 'Companies'

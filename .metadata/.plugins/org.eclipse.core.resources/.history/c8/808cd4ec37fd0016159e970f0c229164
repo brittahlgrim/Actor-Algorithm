@@ -1,0 +1,14 @@
+package pack1.ActorAlgorithm.SearchContracts.GetByIDResult;
+
+public class ActorDataObject {
+	String id;
+	String type;
+	String title;
+	String description;
+	String image;
+	Iterable<String> mediaLinks;
+	FilmographyDataObject filmography;
+	OccupationDataObject occupation;
+}
+	
+	

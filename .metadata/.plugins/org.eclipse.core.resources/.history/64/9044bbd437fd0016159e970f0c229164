@@ -1,0 +1,22 @@
+package pack1.ActorAlgorithm.SearchContracts.GetByIDResult;
+
+public class ActorDataObject {
+	String id;
+	String type;
+	String title;
+	String description;
+	String image;
+	MedialinksDataObject mediaLinks;
+	
+	id: "nm0000115",
+	type: "name",
+	title: "Nicolas Cage",
+	description: "Nicolas Cage was born in Long Beach, California, the son of comparative literature professor August Coppola (a brother of director Francis Ford Coppola) and dancer/choreographer Joy Vogelsang. He is of Italian (father) and German, English, and Polish (mother) descent. Cage changed his name early in his career to make his own reputation, succeeding... See full bio »",
+	image: "https://images-na.ssl-images-amazon.com/images/M/MV5BMTUzMDM4Nzk2MV5BMl5BanBnXkFtZTcwNTcwNjExOQ@@._V1_UY317_CR1,0,214,317_AL_.jpg",
+	mediaLinks: [],
+	filmography: [],
+	occupation: []
+		
+}
+	
+	

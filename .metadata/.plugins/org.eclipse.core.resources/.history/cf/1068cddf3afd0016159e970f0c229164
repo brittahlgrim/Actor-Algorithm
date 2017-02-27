@@ -1,0 +1,61 @@
+package pack1.ActorAlgorithm.SearchContracts.Search;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement
+public class FullSearchResult {
+
+	public String Status;
+	@XmlElement
+	public String getStatus() {
+		return Status;
+	}
+	public void setStatus(String status) {
+		Status = status;
+	}
+
+	public int Code;
+	@XmlElement
+	public int getCode() {
+		return Code;
+	}
+	public void setCode(int code) {
+		Code = code;
+	}
+
+	public String Message;
+	@XmlElement
+	public String getMessage() {
+		return Message;
+	}
+	public void setMessage(String message) {
+		Message = message;
+	}
+
+	public String Term;
+	@XmlElement
+	public String getTerm() {
+		return Term;
+	}
+	public void setTerm(String term) {
+		Term = term;
+	}
+
+	public String SearchUrl;
+	@XmlElement
+	public String getSearchUrl() {
+		return SearchUrl;
+	}
+	public void setSearchUrl(String searchUrl) {
+		SearchUrl = searchUrl;
+	}
+
+	public SearchDataObject Data;
+	@XmlElement
+	public SearchDataObject getData() {
+		return Data;
+	}
+	public void setData(SearchDataObject data) {
+		Data = data;
+	}
+}

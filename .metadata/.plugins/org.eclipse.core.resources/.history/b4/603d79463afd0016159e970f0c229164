@@ -1,0 +1,31 @@
+package pack1.ActorAlgorithm.SearchContracts.GetByIDResult;
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement
+public class FilmographyDataObject {
+	
+	public String title;
+	
+	public String getTitle() {
+		return title;
+	}
+	public void setTitle(String title) {
+		this.title = title;
+	}
+	
+	public String year;
+	public String getYear() {
+		return year;
+	}
+	public void setYear(String year) {
+		this.year = year;
+	}
+	
+	public String info;
+	public String getInfo() {
+		return info;
+	}
+	public void setInfo(String info) {
+		this.info = info;
+	}
+}
