@@ -15,7 +15,10 @@ import pack1.ActorAlgorithm.SearchContracts.Search.FullSearchResult;
 import pack1.ActorAlgorithm.SearchContracts.Search.SearchResultItem;
 
 public class ActorAlgorithm {
+<<<<<<< HEAD
 	static String apikey = "7d27ef57-ffa6-4140-8992-3a52dae6e68d";
+	
+=======
 	
 	private final static int ActorInitialCapacity = 10000;
 	private final static int MovieInitialCapacity = 10000;
@@ -24,6 +27,7 @@ public class ActorAlgorithm {
 	public static HashMap<String, Actor> actorsAlreadySearched = new HashMap<String, Actor>(ActorInitialCapacity);
 	public static HashMap<String, Movie> moviesAlreadySearched = new HashMap<String, Movie>(MovieInitialCapacity);
 
+>>>>>>> refs/remotes/origin/master
 	public static void main (String[] args) throws IOException, JAXBException {
 	    System.out.println("hello world");
 	    //SearchResultItem actorSearchResult = searchActorByName("nicolas cage");
