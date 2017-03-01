@@ -1,0 +1,7 @@
+package main.java.pack1.ActorAlgorithm;
+
+public class Movie {
+	String id;
+	String name;
+	String sourceActor;
+}
