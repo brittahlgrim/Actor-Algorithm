@@ -20,10 +20,20 @@ public class ActorAlgorithm {
 	    System.out.println("hello world");
 	    String name = "nicolascage";
 	    
-	    String[] films = APIService.GetActorMoviesFromName(name);
+	    String[] films = APIService.GetMoviesFromActorName(name);
 	    for(int i = 0; i < films.length; i ++)
 	    {
 	    	System.out.println(films[i]);
+	    }
+	    String[] actors = APIService.GetActorsFromMovieID(films[0]);
+	    for(int i = 0; i < actors.length; i++)
+	    {
+	    	System.out.println(actors[i]);
+	    }
+	    String[] secondFilms = APIService.GetMoviesFromActorName(actors[0]);
+	    for(int i = 0; i < secondFilms.length; i ++)
+	    {
+	    	System.out.println(secondFilms[i]);
 	    }
 	}
 	

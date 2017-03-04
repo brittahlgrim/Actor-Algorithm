@@ -18,13 +18,38 @@ public class APIService {
 	private static String search = "http://imdb.wemakesites.net/api/search?q=%s&api_key=%s";
 	private static String getById = "http://imdb.wemakesites.net/api/%s?api_key=%s";
 	
-	public static String[] GetActorMoviesFromName(String name) throws JsonException, IOException
+	/*
+	 * Input:
+	 * 		name - Name of the actor to search for. The format does not matter, as long as
+	 * 				the first name comes before the last name. Ex. Nicolas Cage, nicolascage, nIc OlA sC aGe
+	 * 
+	 * Output:
+	 * 		films - String array containing the IDs of the films the actor has starred in.
+	 */
+	public static String[] GetMoviesFromActorName(String name) throws JsonException, IOException
 	{
+		name = name.replaceAll("\\s+","");
+		name = name.toLowerCase();
+		
 		JsonObject searchResult = SearchAPIForString(name);
 		String actorId = GetFirstSearchResultId(searchResult);
 		JsonObject informationById = GetInformationById(actorId);
 		String[] films = GetFilmsFromActorObject(informationById);
 		return films;
+	}
+	
+	/*
+	 * Input:
+	 * 		movieId - ID of the movie to search for.
+	 * 
+	 * Output:
+	 * 		actors - String array containing the names of the actors starring in the film.
+	 */
+	public static String[] GetActorsFromMovieID(String movieId) throws JsonException, IOException
+	{
+		JsonObject informationById = GetInformationById(movieId);
+		String[] actors = GetActorsFromFilmObject(informationById);
+		return actors;
 	}
 	
 	private static JsonObject readJsonFromUrl(String uri) throws IOException, JsonException {
@@ -85,5 +110,21 @@ public class APIService {
 		}
 
 		return films;
+	}
+	
+	public static String[] GetActorsFromFilmObject(JsonObject filmResult)
+	{
+		JsonObject data = filmResult.getJsonObject("data");
+		JsonArray cast = data.getJsonArray("cast");
+		int numberOfActors = cast.size();
+		String[] actors = new String[numberOfActors];
+		
+		for(int i = 0; i < numberOfActors; i ++)
+		{
+			String actorName = cast.getString(i);
+			actors[i] = actorName;
+		}
+
+		return actors;
 	}
 }
