@@ -17,8 +17,7 @@ public class ActorAlgorithm {
 	public static HashMap<String, Movie> moviesAlreadySearched = new HashMap<String, Movie>(MovieInitialCapacity);
 
 	public static void main (String[] args) throws IOException, JAXBException {
-	    System.out.println("hello world");
-	    String name = "nicolascage";
+
 	    
 	    String[] films = APIService.GetMoviesFromActorName(name);
 	    for(int i = 0; i < films.length; i ++)
