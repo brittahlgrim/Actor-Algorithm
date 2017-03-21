@@ -11,29 +11,52 @@ public class ActorAlgorithm {
 	
 	private final static int ActorInitialCapacity = 10000;
 	private final static int MovieInitialCapacity = 10000;
-	public static Queue<Actor> actorsToSearch = new LinkedList<Actor>();
-	public static Queue<Movie> moviesToSearch = new LinkedList<Movie>();
-	public static HashMap<String, Actor> actorsAlreadySearched = new HashMap<String, Actor>(ActorInitialCapacity);
-	public static HashMap<String, Movie> moviesAlreadySearched = new HashMap<String, Movie>(MovieInitialCapacity);
+	public static Queue<String> actorsToSearch = new LinkedList<String>();
+	public static Queue<String> moviesToSearch = new LinkedList<String>();
+	public static LinkedHashSet<String> actorsAlreadySearched = new LinkedHashSet<String>(ActorInitialCapacity);
+	public static LinkedHashSet<String> moviesAlreadySearched = new LinkedHashSet<String>(MovieInitialCapacity);
 
 	public static void main (String[] args) throws IOException, JAXBException {
-	    System.out.println("hello world");
-	    String name = "nicolascage";
+	    //input
+	    System.out.println("Enter an actors name: ");
+	    Scanner key= new Scanner(System.in);
+	    String actor1 = key.nextLine();
+	    System.out.println("Enter an actor's name: ");
+	    String actor2 = key.nextLine();
 	    
 	    String[] films = APIService.GetMoviesFromActorName(name);
 	    for(int i = 0; i < films.length; i ++)
 	    {
+	    	moviesToSearch.add(films[i]);
 	    	System.out.println(films[i]);
 	    }
-	    String[] actors = APIService.GetActorsFromMovieID(films[0]);
-	    for(int i = 0; i < actors.length; i++)
+	    while (!moviesToSearch.isEmpty())
 	    {
-	    	System.out.println(actors[i]);
+	    	String film = moviesToSearch.remove();
+	    	moviesAlreadySearched.add(film);
+	    	String[] actors = APIService.GetActorsFromMovieID(film);
+	    	for(int i = 0; i < actors.length; i++)
+	    	{
+	    		if (!actorsAlreadySearched.contains(actors[i]))
+	    		{
+	    			actorsToSearch.add(actors[i]);
+	    		}
+	    		System.out.println(actors[i]);
+	    	}
 	    }
-	    String[] secondFilms = APIService.GetMoviesFromActorName(actors[0]);
-	    for(int i = 0; i < secondFilms.length; i ++)
+	    while (!actorsToSearch.isEmpty())
 	    {
-	    	System.out.println(secondFilms[i]);
+	    	String actor = actorsToSearch.remove();
+	    	actorsAlreadySearched.add(actor);
+	    	String[] secondFilms = APIService.GetMoviesFromActorName(actor);
+	    	for(int i = 0; i < secondFilms.length; i ++)
+	    	{
+	    		if (!moviesAlreadySearched.contains(secondFilms[i]))
+	    		{
+	    			moviesToSearch.add(secondFilms[i]);
+	    		}
+	    		System.out.println(secondFilms[i]);
+	    	}
 	    }
 	}
 	
