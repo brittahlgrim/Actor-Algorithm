@@ -581,3 +581,8 @@
 2017-03-01 00:39:33,626 [Worker-95] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/brittanyahlgrim/Documents/Marquette/Classes/Years/2016-2017/Algorithms/gitRepo/Actor-Algorithm/Actor-Algorithm/src/main/resources
 2017-03-01 00:39:33,628 [Worker-95] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
 2017-03-01 00:39:33,628 [Worker-95] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/brittanyahlgrim/Documents/Marquette/Classes/Years/2016-2017/Algorithms/gitRepo/Actor-Algorithm/Actor-Algorithm/src/test/resources
+2017-03-22 13:44:24,614 [Worker-1] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2017-03-22 15:32:35,560 [Worker-43] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2017-03-22 15:32:35,565 [Worker-43] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/brittanyahlgrim/Documents/Marquette/Classes/Years/2016-2017/Algorithms/gitRepo/Actor-Algorithm/Actor-Algorithm/src/main/resources
+2017-03-22 15:32:35,566 [Worker-43] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2017-03-22 15:32:35,567 [Worker-43] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/brittanyahlgrim/Documents/Marquette/Classes/Years/2016-2017/Algorithms/gitRepo/Actor-Algorithm/Actor-Algorithm/src/test/resources
