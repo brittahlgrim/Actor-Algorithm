@@ -1,9 +1,0 @@
-package pack1.ActorAlgorithm.SearchContracts.Search;
-
-public class SearchResultsObject {
-	public Iterable<SearchResultItem> names;
-	public Iterable<SearchResultItem> titles;
-	public Iterable<SearchResultItem> keywords;
-	public Iterable<SearchResultItem> companies;
-
-}

@@ -1,7 +1,0 @@
-package pack1.ActorAlgorithm.SearchContracts;
-
-public class APIDataObject {
-	public APIResultsObject Results;
-}
-	
-	

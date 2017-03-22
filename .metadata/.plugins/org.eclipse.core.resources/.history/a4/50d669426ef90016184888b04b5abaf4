@@ -1,7 +1,0 @@
-package pack1.ActorAlgorithm;
-
-public class APIDataObject {
-	public APIResultsObject Results;
-}
-	
-	
