@@ -11,56 +11,70 @@ public class ActorAlgorithm {
 	
 	private final static int ActorInitialCapacity = 10000;
 	private final static int MovieInitialCapacity = 10000;
-	public static Queue<String> actorsToSearch = new LinkedList<String>();
+	public static Queue<String> actorIdsToSearch = new LinkedList<String>();
 	public static Queue<String> moviesToSearch = new LinkedList<String>();
 	public static LinkedHashSet<String> actorsAlreadySearched = new LinkedHashSet<String>(ActorInitialCapacity);
 	public static LinkedHashSet<String> moviesAlreadySearched = new LinkedHashSet<String>(MovieInitialCapacity);
 
 	public static void main (String[] args) throws IOException, JAXBException {
 	    //input
-	    System.out.println("Enter an actors name: ");
-	    Scanner key= new Scanner(System.in);
-	    String actor1 = key.nextLine();
-	    System.out.println("Enter an actor's name: ");
-	    String actor2 = key.nextLine();
-	    boolean found = false;
-	    int iteration = 0;
 	    Queue<String> actorsFromMovie = new LinkedList<String>();
 	    Queue<String> actorsForMovie = new LinkedList<String>();
+	    boolean found = false;
+	    int iteration = 0;
+
+	    Scanner key= new Scanner(System.in);
+	    System.out.println("Enter an actors name: ");
+	    String actor1 = key.nextLine();
 	    
-	    actorsToSearch.add(actor1);
-	    while(!actorsToSearch.isEmpty() && !found)
+	    System.out.println("Enter an actor's name: ");
+	    String actor2 = key.nextLine();
+	    key.close();
+	    
+	    String actor1Id = APIService.GetActorIDFromName(actor1.toLowerCase().replaceAll("\\s", "+"));
+	    String actor2Id = APIService.GetActorIDFromName(actor2.toLowerCase().replaceAll("\\s", "+"));
+	    
+	    actorIdsToSearch.add(actor1Id);
+	    while(!actorIdsToSearch.isEmpty() && !found)
 	    {
-	    	if(actorsToSearch.contains(actor2))
+	    	if(actorIdsToSearch.contains(actor2Id))
+	    	{
 	    		found = true;
-	    	actorsAlreadySearched.addAll(actorsToSearch);
-	    	actorsForMovie.addAll(actorsToSearch);
-	    	actorsToSearch.clear();
+	    		break;
+	    	}
+	    	actorsAlreadySearched.addAll(actorIdsToSearch);
+	    	actorsForMovie.addAll(actorIdsToSearch);
+	    	actorIdsToSearch.clear();
 	    	
 	    	while(!actorsForMovie.isEmpty())
 	    	{
-		    	moviesToSearch.addAll(APIService.GetMoviesFromActorName(actorsForMovie.remove()));
+		    	moviesToSearch.addAll(APIService.GetMoviesFromActorId(actorsForMovie.remove()));
 	    		while(!moviesToSearch.isEmpty())
 	    		{
 	    			String currentMovie = moviesToSearch.remove();
 	    			if(!moviesAlreadySearched.contains(currentMovie))
 	    			{
-	    				System.out.println("Movie added: " + currentMovie);
+	    				//System.out.println("Movie added: " + currentMovie);
 	    				moviesAlreadySearched.add(currentMovie);
 		    			actorsFromMovie = APIService.GetActorsFromMovieID(currentMovie);
 		    			while(!actorsFromMovie.isEmpty())
 		    			{
 		    				String currentActor = actorsFromMovie.remove();
+		    				if(currentActor == actor2Id){
+		    					found = true;
+		    					break;
+		    				}
 		    				if(!actorsAlreadySearched.contains(currentActor))
 		    				{
 		    					actorsAlreadySearched.add(currentActor);
-		    					actorsToSearch.add(currentActor);
+		    					actorIdsToSearch.add(currentActor);
 		    				}
 		    			}
 	    			}
 	    		}
 	    	}
 	    	iteration++;
+	    	System.out.println(iteration);
 	    }
 	    
 	    System.out.println("number of iterations: " + iteration);
