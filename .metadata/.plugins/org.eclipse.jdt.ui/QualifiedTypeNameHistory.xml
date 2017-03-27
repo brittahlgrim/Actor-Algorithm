@@ -13,4 +13,10 @@
 <fullyQualifiedTypeName name="javax.xml.bind.Unmarshaller"/>
 <fullyQualifiedTypeName name="java.util.Queue"/>
 <fullyQualifiedTypeName name="java.util.LinkedList"/>
+<fullyQualifiedTypeName name="java.io.BufferedReader"/>
+<fullyQualifiedTypeName name="java.io.InputStreamReader"/>
+<fullyQualifiedTypeName name="javax.naming.spi.DirStateFactory.Result"/>
+<fullyQualifiedTypeName name="javax.print.DocFlavor.STRING"/>
+<fullyQualifiedTypeName name="java.lang.ref.Reference"/>
+<fullyQualifiedTypeName name="main.java.ActorAlgorithm.APIService"/>
 </qualifiedTypeNameHistroy>
