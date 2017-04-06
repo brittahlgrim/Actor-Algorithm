@@ -1,7 +1,7 @@
 package main.java.ActorAlgorithm;
 
 public class Actor {
-	String id;
+	int id;
 	String name;
-	String sourceMovie;
+	Movie sourceMovie;
 }
