@@ -1,0 +1,65 @@
+1
+Actor 1: Julia Stiles	Actor2: Matt Damon
+Number of links: 1
+number of movies searched: 1
+number of actors searched: 1
+Movie: The Bourne Identity
+Actor: Julia Stiles
+Time to complete: 1412
+
+1
+2
+Actor 1: Halle Berry	Actor2: Will Smith
+Number of links: 2
+number of movies searched: 443
+number of actors searched: 7269
+Movie: Ali
+Actor: Joe Morton
+Movie: Executive Decision
+Actor: Halle Berry
+Time to complete: 111426
+
+1
+2
+Actor 1: Leonardo DiCaprio	Actor2: Helen Mirren
+Number of links: 2
+number of movies searched: 247
+number of actors searched: 4204
+Movie: Greenfingers
+Actor: Paterson Joseph
+Movie: The Beach
+Actor: Leonardo DiCaprio
+Time to complete: 61811
+
+1
+Actor 1: Tom Hanks	Actor2: Robert De Niro
+Number of links: 1
+number of movies searched: 79
+number of actors searched: 1637
+Movie: Saturday Night Live 40th Anniversary Special
+Actor: Tom Hanks
+Time to complete: 20058
+
+1
+Actor 1: Jack Nicholson	Actor2: Kevin Spacey
+Number of links: 1
+number of movies searched: 33
+number of actors searched: 727
+Movie: Heartburn
+Actor: Jack Nicholson
+Time to complete: 10620
+
+1
+2
+Actor 1: John Krasinski	Actor2: Christopher Walken
+Number of links: 2
+number of movies searched: 117
+number of actors searched: 2380
+Movie: Saturday Night Live: The Best of Amy Poehler
+Actor: Jake Gyllenhaal
+Movie: Jarhead
+Actor: John Krasinski
+Time to complete: 31725
+
+
+
