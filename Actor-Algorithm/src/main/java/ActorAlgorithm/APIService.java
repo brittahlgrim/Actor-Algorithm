@@ -14,6 +14,9 @@ import java.util.List;
 import java.util.Queue;
 import javax.json.*;
 
+import org.jgrapht.ListenableGraph;
+import org.jgrapht.graph.*;
+
 import info.movito.themoviedbapi.*;
 import info.movito.themoviedbapi.model.Credits;
 import info.movito.themoviedbapi.model.people.*;
@@ -46,7 +49,7 @@ public class APIService {
 	 * Output:
 	 * 		films - Movie array containing the films the actor has starred in.
 	 */
-	public static Queue<Movie> GetMoviesFromActor(TmdbPeople peopleApi, Actor actor) throws JsonException, IOException
+	public static Queue<Movie> GetMoviesFromActor(TmdbPeople peopleApi, Actor actor, ListenableGraph<String, DefaultEdge> graph) throws JsonException, IOException
 	{
 		PersonCredits credits = peopleApi.getPersonCredits(actor.id);
 		List<PersonCredit> creditList = credits.getCast();
@@ -59,6 +62,8 @@ public class APIService {
 			nextMovie.id = credit.getMovieId();
 			nextMovie.name = credit.getMovieTitle();
 			films.add(nextMovie);
+			graph.addVertex(nextMovie.name);
+			graph.addEdge(actor.name, nextMovie.name);
 		}
 		return films;
 	}
@@ -71,7 +76,7 @@ public class APIService {
 	 * Output:
 	 * 		actors - Array containing the actors starring in the film
 	 */
-	public static Queue<Actor> GetActorsFromMovie(TmdbMovies moviesApi, Movie movie) throws JsonException, IOException
+	public static Queue<Actor> GetActorsFromMovie(TmdbMovies moviesApi, Movie movie, ListenableGraph<String, DefaultEdge> graph) throws JsonException, IOException
 	{
 		Credits credits = moviesApi.getCredits(movie.id);
 		List<PersonCast> castList = credits.getCast();
@@ -84,6 +89,8 @@ public class APIService {
 			nextActor.id = castMember.getId();
 			nextActor.name = castMember.getName();
 			actors.add(nextActor);
+			graph.addVertex(nextActor.name);
+			graph.addEdge(movie.name, nextActor.name);
 		}
 		return actors;
 	}

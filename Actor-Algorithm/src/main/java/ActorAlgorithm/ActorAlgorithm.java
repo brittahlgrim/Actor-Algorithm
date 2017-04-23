@@ -7,6 +7,8 @@ import javax.xml.bind.JAXBException;
 
 import info.movito.themoviedbapi.*;
 
+import org.jgrapht.*;
+import org.jgrapht.graph.*;
 
 public class ActorAlgorithm {
 	static String apikey = "d507f15dec6b145abf66f17a69cb71c2";
@@ -22,6 +24,7 @@ public class ActorAlgorithm {
 	    //input
 	    Queue<Actor> actorsFromMovie = new LinkedList<Actor>();
 	    Queue<Actor> actorsForMovie = new LinkedList<Actor>();
+	    ListenableGraph<String, DefaultEdge> graph = new ListenableUndirectedGraph<>(DefaultEdge.class);
 	    boolean found = false;
 	    int iteration = 0;
 
@@ -44,6 +47,7 @@ public class ActorAlgorithm {
 	    
 	    actor1.sourceMovie = null;
 	    actorsToSearch.add(actor1);
+	    graph.addVertex(actor1.name);
 	    while(!actorsToSearch.isEmpty() && !found)
 	    {
 	    	/*if(actorsToSearch.contains(actor2))
@@ -57,7 +61,7 @@ public class ActorAlgorithm {
 	    	
 	    	while(!actorsForMovie.isEmpty())
 	    	{
-		    	moviesToSearch.addAll(APIService.GetMoviesFromActor(peopleApi, actorsForMovie.remove()));
+		    	moviesToSearch.addAll(APIService.GetMoviesFromActor(peopleApi, actorsForMovie.remove(), graph));
 	    		while(!moviesToSearch.isEmpty())
 	    		{
 	    			Movie currentMovie = moviesToSearch.remove();
@@ -65,7 +69,7 @@ public class ActorAlgorithm {
 	    			{
 	    				//System.out.println("Movie added: " + currentMovie);
 	    				moviesAlreadySearched.add(currentMovie);
-		    			actorsFromMovie = APIService.GetActorsFromMovie(moviesApi, currentMovie);
+		    			actorsFromMovie = APIService.GetActorsFromMovie(moviesApi, currentMovie, graph);
 		    			while(!actorsFromMovie.isEmpty())
 		    			{
 		    				Actor currentActor = actorsFromMovie.remove();
