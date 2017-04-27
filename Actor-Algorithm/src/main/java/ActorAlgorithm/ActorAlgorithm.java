@@ -24,6 +24,7 @@ import com.mxgraph.swing.mxGraphComponent;
 import com.mxgraph.util.mxConstants;
 import com.mxgraph.view.mxStylesheet;
 
+
 public class ActorAlgorithm {
 	static String apikey = "d507f15dec6b145abf66f17a69cb71c2";
 	
@@ -33,10 +34,9 @@ public class ActorAlgorithm {
 	private final Dimension DEFAULT_SIZE = new Dimension(1000, 500);
 	private GraphDisplay display;
 	private boolean enableGraph = true;
-	
+
+    
 	public static ListenableGraph<String, DefaultEdge> graph = new ListenableUndirectedGraph<>(DefaultEdge.class);
-	
-	
 	
 	
 	public class GraphDisplay extends JApplet {
@@ -65,11 +65,15 @@ public class ActorAlgorithm {
 	
 		public static void main (String[] args) throws IOException, JAXBException 
 	{
-		ActorAlgorithm algorithm = new ActorAlgorithm();
-		algorithm.init();
+		UserInterface ui = new UserInterface();
+		ui.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		ui.setResizable(false);
+		ui.setSize(400, 400);
+		ui.setVisible(true);
 	}
 		
-		public void init() throws JsonException, IOException {
+		public void init(String actor1, String actor2) throws JsonException, IOException {
+
 			if (enableGraph) {
 				display = new GraphDisplay();
 				display.init();
@@ -81,23 +85,24 @@ public class ActorAlgorithm {
 				frame.pack();
 				frame.setVisible(true);
 			}
-			
 			//RunFromFile();
-			RunFromConsole();
+			RunFromConsole(actor1, actor2);
+			
 		}
 	
-	public void RunFromConsole() throws JsonException, IOException
+	public void RunFromConsole(String actor1, String actor2) throws JsonException, IOException
 	{
 	    //input
-	    Scanner key= new Scanner(System.in);
-	    System.out.println("Enter an actors name: ");
-	    String actor1Name = key.nextLine();
-	    
-	    System.out.println("Enter an actor's name: ");
-	    String actor2Name = key.nextLine();
-	    key.close();
-	    
-	    int numLinks = RunProgram(actor1Name, actor2Name);
+	 
+//		Scanner key= new Scanner(System.in);
+//	    System.out.println("Enter an actors name: ");
+//	    String actor1Name = key.nextLine();
+//	    
+//	    System.out.println("Enter an actor's name: ");
+//	    String actor2Name = key.nextLine();
+//	    key.close();
+	  
+		RunProgram(actor1, actor2);
 	}
 	
 	public void RunFromFile() throws FileNotFoundException
@@ -230,7 +235,6 @@ public class ActorAlgorithm {
 	    }
 	    System.out.println("Time to complete: " + time);
 	    System.out.println();
-	    
 	    if (enableGraph) {
 	    	display.resetLayout();
 	    }
