@@ -21,6 +21,8 @@ import org.jgrapht.graph.*;
 
 import com.mxgraph.layout.*;
 import com.mxgraph.swing.mxGraphComponent;
+import com.mxgraph.util.mxConstants;
+import com.mxgraph.view.mxStylesheet;
 
 public class ActorAlgorithm {
 	static String apikey = "d507f15dec6b145abf66f17a69cb71c2";
@@ -51,6 +53,9 @@ public class ActorAlgorithm {
 		
 		public void resetLayout() {
 			mxCompactTreeLayout layout = new mxCompactTreeLayout(jgxAdapter);
+			jgxAdapter.getStylesheet().getDefaultEdgeStyle().put(mxConstants.STYLE_NOLABEL, "1");
+			layout.setHorizontal(false);
+			layout.setNodeDistance(120);
 			layout.execute(jgxAdapter.getDefaultParent());
 		}
 	}
