@@ -21,6 +21,8 @@ import org.jgrapht.graph.*;
 
 import com.mxgraph.layout.*;
 import com.mxgraph.swing.mxGraphComponent;
+import com.mxgraph.util.mxConstants;
+import com.mxgraph.view.mxStylesheet;
 
 
 public class ActorAlgorithm {
@@ -33,9 +35,12 @@ public class ActorAlgorithm {
 	private GraphDisplay display;
 	private boolean enableGraph = true;
 
-    
+	public static Boolean runComplete = false; 
+	public static String actor1, actor2, movieSearch, actorSearch;
+	public static long timeCompleted;
+	public static int numLinks, numMovies, numActors;
 	public static ListenableGraph<String, DefaultEdge> graph = new ListenableUndirectedGraph<>(DefaultEdge.class);
-	
+
 	
 	public class GraphDisplay extends JApplet {
 		private static final long serialVersionUID = 1L;
@@ -51,6 +56,9 @@ public class ActorAlgorithm {
 		
 		public void resetLayout() {
 			mxCompactTreeLayout layout = new mxCompactTreeLayout(jgxAdapter);
+			jgxAdapter.getStylesheet().getDefaultEdgeStyle().put(mxConstants.STYLE_NOLABEL, "1");
+			layout.setHorizontal(false);
+			layout.setNodeDistance(120);
 			layout.execute(jgxAdapter.getDefaultParent());
 		}
 	}
@@ -144,6 +152,8 @@ public class ActorAlgorithm {
 	
 	public int RunProgram(String actor1Name, String actor2Name) throws JsonException, IOException
 	{
+		actor1 = actor1Name; actor2= actor2Name; //for UI purposes
+		
 		Queue<Actor> actorsFromMovie = new LinkedList<Actor>();
 	    Queue<Actor> actorsForMovie = new LinkedList<Actor>();
 	    Queue<Actor> actorsToSearch = new LinkedList<Actor>();
@@ -213,22 +223,32 @@ public class ActorAlgorithm {
 //	    System.out.println("Actor: " + actor2.name);
 	    
 	    long finishTime = System.currentTimeMillis();
+	    runComplete = true; 
 	    time = finishTime - startTime;
+	    timeCompleted = time; //for UI display
 	    
-	    System.out.println("Actor 1: " + actor1Name + "\tActor2: " + actor2Name);
-	    if(found) System.out.println("Number of links: " + iteration);
-	    else System.out.println("No connection found");
-	    System.out.println("number of movies searched: " + moviesAlreadySearched.size());
-	    System.out.println("number of actors searched: " + actorsAlreadySearched.size());
+//	    System.out.println("Actor 1: " + actor1Name + "\tActor2: " + actor2Name);
+	    if(found) 
+	    	numLinks = iteration; 
+	    else 
+	    	numLinks = 0;
+	    
+	    //System.out.println("number of movies searched: " + moviesAlreadySearched.size());
+	    numMovies = moviesAlreadySearched.size();
+	   // System.out.println("number of actors searched: " + actorsAlreadySearched.size());
+	    numActors = actorsAlreadySearched.size();
 	    Movie nextMovie = actor2.sourceMovie;
 	    Actor nextActor;
 	    while (nextMovie != null) {
-	    	System.out.println("Movie: " + nextMovie.name);
+	    	//System.out.println("Movie: " + nextMovie.name);
+	    	movieSearch = nextMovie.name;
 	    	nextActor = nextMovie.sourceActor;
-	    	System.out.println("Actor: " + nextActor.name);
+	    	//System.out.println("Actor: " + nextActor.name);
+	    	actorSearch = nextActor.name;
 	    	nextMovie = nextActor.sourceMovie;
 	    }
-	    System.out.println("Time to complete: " + time);
+ 
+	  //  System.out.println("Time to complete: " + time);
 	    System.out.println();
 	    if (enableGraph) {
 	    	display.resetLayout();
