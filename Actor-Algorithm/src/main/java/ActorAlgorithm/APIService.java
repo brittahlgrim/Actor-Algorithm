@@ -35,6 +35,12 @@ public class APIService {
 	{
 		TmdbPeople.PersonResultsPage results = searchApi.searchPerson(name, false, 1);
 		Actor actor = new Actor();
+		if(results == null)
+			return null;
+		if(results.getResults()==null)
+			return null;
+		if(results.getResults().get(0) == null)
+			return null;
 		actor.name = results.getResults().get(0).getName();
 		actor.id = results.getResults().get(0).getId();
 		return actor;
@@ -79,7 +85,11 @@ public class APIService {
 	public static Queue<Actor> GetActorsFromMovie(TmdbMovies moviesApi, Movie movie, ListenableGraph<String, DefaultEdge> graph) throws JsonException, IOException
 	{
 		Credits credits = moviesApi.getCredits(movie.id);
+		if(credits == null)
+			return null;
 		List<PersonCast> castList = credits.getCast();
+		if(castList == null)
+			return null;
 		PersonCast castMember;
 		Queue<Actor> actors = new LinkedList<Actor>();
 		for(int i = 0; i < castList.size(); i++) {

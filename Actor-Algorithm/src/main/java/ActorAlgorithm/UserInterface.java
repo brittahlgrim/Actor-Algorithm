@@ -71,8 +71,6 @@ public class UserInterface extends JFrame implements ActionListener {
 		run = true;
 		actor1 = input1.getText();
 		actor2 = input2.getText();
-		System.out.println("ok");
-		// System.out.println(actor1 + actor2);
 		ActorAlgorithm algorithm = new ActorAlgorithm();
 		try {
 			algorithm.init(actor1, actor2);

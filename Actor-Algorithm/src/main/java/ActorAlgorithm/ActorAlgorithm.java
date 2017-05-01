@@ -150,7 +150,7 @@ public class ActorAlgorithm {
 		
 	}
 	
-	public int RunProgram(String actor1Name, String actor2Name) throws JsonException, IOException
+	public void RunProgram(String actor1Name, String actor2Name) throws JsonException, IOException
 	{
 		actor1 = actor1Name; actor2= actor2Name; //for UI purposes
 		
@@ -172,7 +172,15 @@ public class ActorAlgorithm {
 	    TmdbSearch searchApi = api.getSearch();
 	    
 	    Actor actor1 = APIService.GetActorFromName(searchApi, actor1Name);
+	    if(actor1 == null){
+	    	System.out.println("Actor (" + actor1Name + ") could not be found. Please try a different search.");
+	    	return;
+	    }
 	    Actor actor2 = APIService.GetActorFromName(searchApi, actor2Name);
+	    if(actor2 == null){
+	    	System.out.println("Actor (" + actor2Name + ") could not be found. Please try a different search.");
+	    	return;
+	    }
 	    
 	    actor1.sourceMovie = null;
 	    actor2.sourceMovie = null;
@@ -194,7 +202,6 @@ public class ActorAlgorithm {
 	    			Movie currentMovie = moviesToSearch.remove();
 	    			if(!moviesAlreadySearched.contains(currentMovie))
 	    			{
-	    				//System.out.println("Movie added: " + currentMovie);
 	    				moviesAlreadySearched.add(currentMovie);
 		    			actorsFromMovie = APIService.GetActorsFromMovie(moviesApi, currentMovie, graph);
 		    			while(!actorsFromMovie.isEmpty() && !found)
@@ -219,43 +226,39 @@ public class ActorAlgorithm {
 	    	System.out.println(iteration);
 	    }
 	    
-//	    System.out.println("number of iterations: " + iteration);
-//	    System.out.println("Actor: " + actor2.name);
+	    System.out.println("number of iterations: " + iteration);
+	    System.out.println("Actor: " + actor2.name);
 	    
 	    long finishTime = System.currentTimeMillis();
 	    runComplete = true; 
 	    time = finishTime - startTime;
 	    timeCompleted = time; //for UI display
 	    
-//	    System.out.println("Actor 1: " + actor1Name + "\tActor2: " + actor2Name);
+	    System.out.println("Actor 1: " + actor1Name + "\tActor2: " + actor2Name);
 	    if(found) 
 	    	numLinks = iteration; 
 	    else 
 	    	numLinks = 0;
 	    
-	    //System.out.println("number of movies searched: " + moviesAlreadySearched.size());
+	    System.out.println("number of movies searched: " + moviesAlreadySearched.size());
 	    numMovies = moviesAlreadySearched.size();
-	   // System.out.println("number of actors searched: " + actorsAlreadySearched.size());
+	    System.out.println("number of actors searched: " + actorsAlreadySearched.size());
 	    numActors = actorsAlreadySearched.size();
 	    Movie nextMovie = actor2.sourceMovie;
 	    Actor nextActor;
 	    while (nextMovie != null) {
-	    	//System.out.println("Movie: " + nextMovie.name);
+	    	System.out.println("Movie: " + nextMovie.name);
 	    	movieSearch = nextMovie.name;
 	    	nextActor = nextMovie.sourceActor;
-	    	//System.out.println("Actor: " + nextActor.name);
+	    	System.out.println("Actor: " + nextActor.name);
 	    	actorSearch = nextActor.name;
 	    	nextMovie = nextActor.sourceMovie;
 	    }
  
-	  //  System.out.println("Time to complete: " + time);
+	    System.out.println("Time to complete: " + time);
 	    System.out.println();
 	    if (enableGraph) {
 	    	display.resetLayout();
 	    }
-	    
-	    if (found)
-	    	return iteration;
-	    return -1;
 	}
 }
