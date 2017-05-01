@@ -17,6 +17,7 @@ public class UserInterface extends JFrame implements ActionListener {
 	JLabel info1, info2;
 	JButton enter, results;
 	JTextArea output;
+	JScrollPane scroll; 
 	String text = "Results";
 
 	public UserInterface() {
@@ -50,11 +51,15 @@ public class UserInterface extends JFrame implements ActionListener {
 		enter.setBounds(200, 90, 100, 20);
 		add(enter);
 
+		
 		output = new JTextArea(text, 5, 10);
-		output.setBounds(25, 150, 325, 150);
 		output.setLineWrap(true);
-		add(output);
-
+		
+		scroll = new JScrollPane(output); 
+		scroll.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+		scroll.setBounds(25, 150, 325, 150);
+		//scroll.setSize(100,100);
+		add(scroll);
 	}
 
 	public static void main(String[] args) {
